@@ -4,8 +4,8 @@
 
 
 ------------------------------------------- 1/7 :
-in : product.ts
-<br>this :
+  in : product.ts
+  <br>this :
 ```typescript
 import { Observable, tap, catchError, throwError } from 'rxjs';
 ```
@@ -17,7 +17,7 @@ import { Observable, tap, catchError, throwError, map } from 'rxjs';
 
 ------------------------------------------- 2/7 :
   in : product.ts
-  this :
+  <br>this :
 ```typescript
 private apiUrl = '[https://fakestoreapi.com](https://fakestoreapi.com)';
 ```
@@ -29,7 +29,7 @@ private apiUrl = '[https://dummyjson.com](https://dummyjson.com)';
 
 ------------------------------------------- 3/7 : (Fetching All Products (getAll))
   in : product.ts
-  this :
+  <br>this :
 ```typescript
 return this.http.get<Product[]>(`${this.apiUrl}/products`).pipe(...)
 ```
@@ -43,7 +43,7 @@ return this.http.get<{ products: any[] }>(`${this.apiUrl}/products?limit=0`).pip
 
 ------------------------------------------- 4/7 : (Fetching by Category (getByCategory)) "THIS IS NEVER USED BTW??"
   in : product.ts
-  this :
+  <br>this :
 ```typescript
 return this.http.get<Product[]>(`${this.apiUrl}/products/category/${category}`).pipe(...)
 ```
@@ -57,7 +57,7 @@ return this.http.get<{ products: any[] }>(`${this.apiUrl}/products/category/${ca
 
 ------------------------------------------- 5/7 : (Fetching Categories (getCategories))
   in : product.ts
-  this :
+  <br>this :
 ```typescript
 return this.http.get<string[]>(`${this.apiUrl}/products/categories`);
 ```
@@ -71,7 +71,7 @@ return this.http.get<any[]>(`${this.apiUrl}/products/categories`).pipe(
 
 ------------------------------------------- 6/7 : (Added Normalizer to dummyjson)
   in : product.ts
-  at the buttom :
+  <br>at the buttom :
 ```typescript
 private normalize(p: any): Product {
   return {
@@ -92,7 +92,7 @@ private normalize(p: any): Product {
 
 ------------------------------------------- 7/7 : (Fetching a Single Product (getById))
   in : product.ts
-  add this line :
+  <br>add this line :
 ```typescript
 map(p => this.normalize(p)),
 ```
