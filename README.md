@@ -92,13 +92,17 @@ map(p => this.normalize(p)),
   here :
 ```typescript
 getById(id: number): Observable<Product> {
-  // ...
-  return this.http.get<any>(`${this.apiUrl}/products/${id}`).pipe(
-    map(p => this.normalize(p)), // <-- ADDED HERE
-    tap(() => this.loading.set(false)),
-    // ...
-  );
-}
+    this.loading.set(true);
+    return this.http.get<any>(`${this.apiUrl}/products/${id}`).pipe(
+      map(p => this.normalize(p)),
+      tap(() => this.loading.set(false)),
+      catchError(err => {
+        this.loading.set(false);
+        this.error.set('Produit introuvable');
+        return throwError(() => err);
+      })
+    );
+  }
 ```
 
 
