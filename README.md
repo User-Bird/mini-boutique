@@ -94,7 +94,7 @@ map(p => this.normalize(p)),
 getById(id: number): Observable<Product> {
     this.loading.set(true);
     return this.http.get<any>(`${this.apiUrl}/products/${id}`).pipe(
-      map(p => this.normalize(p)),
+      map(p => this.normalize(p)), // here is added
       tap(() => this.loading.set(false)),
       catchError(err => {
         this.loading.set(false);
