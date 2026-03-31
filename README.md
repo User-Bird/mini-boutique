@@ -5,7 +5,7 @@
 
 ------------------------------------------- 1/7 :
 in : product.ts
-this :
+<br>this :
 ```typescript
 import { Observable, tap, catchError, throwError } from 'rxjs';
 ```
