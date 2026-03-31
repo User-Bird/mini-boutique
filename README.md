@@ -8,7 +8,7 @@
 ```bash
 # Cloner projet
 git clone https://github.com/User-Bird/Mini-Boutique.git
-cd gestion-contacts
+cd Mini-Boutique
 
 # Installer les dépendances (node_modules)
 npm install
