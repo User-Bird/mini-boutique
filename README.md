@@ -1,10 +1,9 @@
 # Mini Boutique
 
 ### 0. Changes to the tp code
-
+ALL THESE HAPPENED IN "product.ts"
 
 ------------------------------------------- 1/7 :
-  in : product.ts
   <br>this :
 ```typescript
 import { Observable, tap, catchError, throwError } from 'rxjs';
@@ -16,7 +15,6 @@ import { Observable, tap, catchError, throwError, map } from 'rxjs';
 
 
 ------------------------------------------- 2/7 :
-  in : product.ts
   <br>this :
 ```typescript
 private apiUrl = '[https://fakestoreapi.com](https://fakestoreapi.com)';
@@ -28,7 +26,6 @@ private apiUrl = '[https://dummyjson.com](https://dummyjson.com)';
 
 
 ------------------------------------------- 3/7 : (Fetching All Products (getAll))
-  in : product.ts
   <br>this :
 ```typescript
 return this.http.get<Product[]>(`${this.apiUrl}/products`).pipe(...)
@@ -42,7 +39,6 @@ return this.http.get<{ products: any[] }>(`${this.apiUrl}/products?limit=0`).pip
               
 
 ------------------------------------------- 4/7 : (Fetching by Category (getByCategory)) "THIS IS NEVER USED BTW??"
-  in : product.ts
   <br>this :
 ```typescript
 return this.http.get<Product[]>(`${this.apiUrl}/products/category/${category}`).pipe(...)
@@ -56,7 +52,6 @@ return this.http.get<{ products: any[] }>(`${this.apiUrl}/products/category/${ca
 
 
 ------------------------------------------- 5/7 : (Fetching Categories (getCategories))
-  in : product.ts
   <br>this :
 ```typescript
 return this.http.get<string[]>(`${this.apiUrl}/products/categories`);
@@ -70,7 +65,6 @@ return this.http.get<any[]>(`${this.apiUrl}/products/categories`).pipe(
           
 
 ------------------------------------------- 6/7 : (Added Normalizer to dummyjson)
-  in : product.ts
   <br>at the buttom :
 ```typescript
 private normalize(p: any): Product {
@@ -91,7 +85,6 @@ private normalize(p: any): Product {
 
 
 ------------------------------------------- 7/7 : (Fetching a Single Product (getById))
-  in : product.ts
   <br>add this line :
 ```typescript
 map(p => this.normalize(p)),
