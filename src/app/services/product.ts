@@ -14,7 +14,7 @@ export class ProductService {
   getAll(): Observable<Product[]> {
     this.loading.set(true);
     this.error.set(null);
-    return this.http.get<{ products: any[] }>(`${this.apiUrl}/products?limit=100`).pipe(
+    return this.http.get<{ products: any[] }>(`${this.apiUrl}/products?limit=0`).pipe(
       map(res => res.products.map(p => this.normalize(p))),
       tap(() => this.loading.set(false)),
       catchError(err => {
@@ -39,9 +39,9 @@ export class ProductService {
   }
 
   getCategories(): Observable<string[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/products/categories`).pipe(
-      map(cats => cats.map(c => typeof c === 'string' ? c : c.name))
-    );
+    return this.http
+      .get<any[]>(`${this.apiUrl}/products/categories`)
+      .pipe(map((cats) => cats.map((c) => (typeof c === 'string' ? c : c.slug))));
   }
 
   getByCategory(category: string): Observable<Product[]> {
