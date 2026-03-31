@@ -1,0 +1,126 @@
+.product-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+}
+
+.card-image {
+  position: relative;
+  display: block;
+  height: 200px;
+  background: #f8f8f8;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 16px;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .card-image img {
+  transform: scale(1.05);
+}
+
+.category-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(37, 99, 235, 0.85);
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  text-transform: capitalize;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 16px;
+  gap: 8px;
+}
+
+.card-title a {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1e293b;
+  text-decoration: none;
+  line-height: 1.4;
+}
+
+.card-title a:hover {
+  color: #2563eb;
+}
+
+.card-description {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.card-rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.stars {
+  color: #f59e0b;
+  letter-spacing: 2px;
+}
+
+.count {
+  color: #94a3b8;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  gap: 8px;
+}
+
+.price {
+  font-size: 16px;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.btn-cart {
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-cart:hover {
+  background: #1d4ed8;
+}
+
+.btn-cart.in-cart {
+  background: #059669;
+  cursor: default;
+}

@@ -1,0 +1,65 @@
+<section class="detail-page">
+
+  @if (loading()) {
+    <div class="loading-state">
+      <div class="spinner"></div>
+      <p>Chargement du produit...</p>
+    </div>
+  }
+
+  @if (!loading() && product()) {
+    <a routerLink="/products" class="btn-back">← Retour au catalogue</a>
+
+    <div class="detail-layout">
+
+      <!-- Image -->
+      <div class="detail-image-box">
+        <img
+          [src]="product()!.image"
+          [alt]="product()!.title"
+          class="detail-image"
+        />
+      </div>
+
+      <!-- Info -->
+      <div class="detail-info">
+        <span class="detail-category">{{ product()!.category }}</span>
+        <h1 class="detail-title">{{ product()!.title }}</h1>
+
+        <div class="detail-rating">
+          <span class="stars">{{ getStars(product()!.rating.rate) }}</span>
+          <span class="rate">{{ product()!.rating.rate }}/5</span>
+          <span class="count">({{ product()!.rating.count }} avis)</span>
+        </div>
+
+        <p class="detail-price">{{ product()!.price | currencyMAD }}</p>
+
+        <p class="detail-description">{{ product()!.description }}</p>
+
+        <!-- Quantity selector -->
+        <div class="quantity-selector">
+          <span class="qty-label">Quantité :</span>
+          <div class="qty-controls">
+            <button class="qty-btn" (click)="decrement()">−</button>
+            <span class="qty-value">{{ selectedQuantity() }}</span>
+            <button class="qty-btn" (click)="increment()">+</button>
+          </div>
+        </div>
+
+        <!-- Add to cart -->
+        <button
+          class="btn-add"
+          [class.in-cart]="isInCart"
+          (click)="addToCart()">
+          @if (isInCart) {
+            ✓ Déjà dans le panier — Ajouter encore
+          } @else {
+            🛒 Ajouter au panier
+          }
+        </button>
+
+      </div>
+    </div>
+  }
+
+</section>

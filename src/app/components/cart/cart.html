@@ -1,0 +1,56 @@
+<section class="cart-page">
+  <h1 class="cart-title">🛒 Mon Panier</h1>
+
+  @if (cartService.isEmpty()) {
+    <div class="empty-cart">
+      <p class="empty-icon">🛍️</p>
+      <p class="empty-text">Votre panier est vide</p>
+      <a routerLink="/products" class="btn-continue">
+        Découvrir nos produits
+      </a>
+    </div>
+  } @else {
+    <div class="cart-layout">
+
+      <!-- Items list -->
+      <div class="cart-items">
+        @for (item of cartService.items(); track item.product.id) {
+          <app-cart-item [item]="item" />
+        }
+      </div>
+
+      <!-- Summary -->
+      <div class="cart-summary">
+        <h2 class="summary-title">Récapitulatif</h2>
+
+        <div class="summary-row">
+          <span>Articles</span>
+          <span>{{ cartService.itemCount() }}</span>
+        </div>
+        <div class="summary-row">
+          <span>Produits uniques</span>
+          <span>{{ cartService.uniqueProductCount() }}</span>
+        </div>
+
+        <div class="summary-total">
+          <span>Total</span>
+          <span>{{ cartService.totalPrice() | currencyMAD }}</span>
+        </div>
+
+        <button class="btn-checkout">
+          Passer la commande
+        </button>
+
+        <div class="summary-actions">
+          <a routerLink="/products" class="btn-continue">
+            ← Continuer les achats
+          </a>
+          <button class="btn-clear" (click)="onClearCart()">
+            🗑️ Vider le panier
+          </button>
+        </div>
+      </div>
+
+    </div>
+  }
+</section>

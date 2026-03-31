@@ -1,0 +1,30 @@
+<div class="product-card">
+  <a [routerLink]="['/products', product().id]" class="card-image">
+    <img [src]="product().image" [alt]="product().title" />
+    <span class="category-badge">{{ product().category }}</span>
+  </a>
+
+  <div class="card-body">
+    <h3 class="card-title">
+      <a [routerLink]="['/products', product().id]">
+        {{ product().title | truncate:50 }}
+      </a>
+    </h3>
+    <p class="card-description">{{ product().description | truncate:80 }}</p>
+
+    <div class="card-rating">
+      <span class="stars">{{ getStars(product().rating.rate) }}</span>
+      <span class="count">({{ product().rating.count }} avis)</span>
+    </div>
+
+    <div class="card-footer">
+      <span class="price">{{ product().price | currencyMAD }}</span>
+      <button
+        class="btn-cart"
+        [class.in-cart]="isInCart"
+        (click)="onAddToCart()">
+        {{ isInCart ? '✓ Déjà dans le panier' : 'Ajouter au panier' }}
+      </button>
+    </div>
+  </div>
+</div>

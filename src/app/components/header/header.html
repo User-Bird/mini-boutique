@@ -1,0 +1,16 @@
+<header class="app-header">
+  <div class="header-content">
+    <a routerLink="/" class="logo">ShopApp</a>
+    <nav class="nav-links">
+      <a routerLink="/products" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        Produits
+      </a>
+      <a routerLink="/cart" routerLinkActive="active" class="cart-link">
+        Panier
+        @if (cartService.itemCount() > 0) {
+          <span class="badge">{{ cartService.itemCount() }}</span>
+        }
+      </a>
+    </nav>
+  </div>
+</header>

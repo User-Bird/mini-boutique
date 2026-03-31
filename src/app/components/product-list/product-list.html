@@ -1,0 +1,67 @@
+<section class="product-list-page">
+
+  <!-- Search & Filter Bar -->
+  <div class="toolbar">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input
+        type="text"
+        placeholder="Rechercher un produit..."
+        [ngModel]="searchTerm()"
+        (ngModelChange)="onSearchChange($event)"
+        class="search-input"
+      />
+    </div>
+
+    <div class="category-filters">
+      <button
+        class="filter-btn"
+        [class.active]="selectedCategory() === 'all'"
+        (click)="onCategoryChange('all')">
+        Tous
+      </button>
+      @for (cat of categories(); track cat) {
+        <button
+          class="filter-btn"
+          [class.active]="selectedCategory() === cat"
+          (click)="onCategoryChange(cat)">
+          {{ cat }}
+        </button>
+      }
+    </div>
+  </div>
+
+  <!-- Results count -->
+  <p class="results-count">
+    {{ filteredProducts().length }} produit(s) trouvé(s)
+  </p>
+
+  <!-- Loading -->
+  @if (loading()) {
+    <div class="loading-state">
+      <div class="spinner"></div>
+      <p>Chargement des produits...</p>
+    </div>
+  }
+
+  <!-- Error -->
+  @if (error()) {
+    <div class="error-state">
+      <p>⚠️ {{ error() }}</p>
+    </div>
+  }
+
+  <!-- Product Grid -->
+  @if (!loading() && !error()) {
+    <div class="product-grid">
+      @for (product of filteredProducts(); track product.id) {
+        <app-product-card [product]="product" />
+      } @empty {
+        <div class="empty-state">
+          <p>😕 Aucun produit trouvé pour cette recherche.</p>
+        </div>
+      }
+    </div>
+  }
+
+</section>
