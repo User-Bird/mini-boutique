@@ -1,7 +1,7 @@
 # Mini Boutique
 
 ### 0. Changes to the tp code
-ALL THESE HAPPENED IN "product.ts"
+all these changes happened in "product.ts"
 
 ------------------------------------------- 1/7 :
   <br>this :
