@@ -3,7 +3,7 @@
 ### 0. Changes to the tp code
 
 
--- 1/7 :
+---------------------- 1/7 :
   in : product.ts
   this :
 ```typescript
@@ -14,7 +14,8 @@ import { Observable, tap, catchError, throwError } from 'rxjs';
 import { Observable, tap, catchError, throwError, map } from 'rxjs';
 ```
 
--- 2/7 :
+
+---------------------- 2/7 :
   in : product.ts
   this :
 ```typescript
@@ -25,7 +26,8 @@ private apiUrl = '[https://fakestoreapi.com](https://fakestoreapi.com)';
 private apiUrl = '[https://dummyjson.com](https://dummyjson.com)';
 ```
 
---3/7 : (Fetching All Products (getAll))
+
+---------------------- 3/7 : (Fetching All Products (getAll))
   in : product.ts
   this :
 ```typescript
@@ -38,7 +40,8 @@ return this.http.get<{ products: any[] }>(`${this.apiUrl}/products?limit=0`).pip
   ...
 ```
               
---4/7 : (Fetching by Category (getByCategory)) "THIS IS NEVER USED BTW??"
+
+---------------------- 4/7 : (Fetching by Category (getByCategory)) "THIS IS NEVER USED BTW??"
   in : product.ts
   this :
 ```typescript
@@ -51,7 +54,8 @@ return this.http.get<{ products: any[] }>(`${this.apiUrl}/products/category/${ca
   ...
 ```
 
---5/7 : (Fetching Categories (getCategories))
+
+---------------------- 5/7 : (Fetching Categories (getCategories))
   in : product.ts
   this :
 ```typescript
@@ -64,7 +68,8 @@ return this.http.get<any[]>(`${this.apiUrl}/products/categories`).pipe(
 );
 ```
           
---6/7 : (Added Normalizer to dummyjson)
+
+---------------------- 6/7 : (Added Normalizer to dummyjson)
   in : product.ts
   at the buttom :
 ```typescript
@@ -84,7 +89,8 @@ private normalize(p: any): Product {
 }
 ```
 
---7/7 : (Fetching a Single Product (getById))
+
+---------------------- 7/7 : (Fetching a Single Product (getById))
   in : product.ts
   add this line :
 ```typescript
