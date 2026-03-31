@@ -4,12 +4,12 @@
 
 
 ------------------------------------------- 1/7 :
-  in : product.ts
-  -this :
+in : product.ts
+this :
 ```typescript
 import { Observable, tap, catchError, throwError } from 'rxjs';
 ```
-  changed to:
+changed to:
 ```typescript
 import { Observable, tap, catchError, throwError, map } from 'rxjs';
 ```
